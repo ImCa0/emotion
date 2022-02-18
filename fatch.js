@@ -6,7 +6,7 @@ let emote = JSON.parse(fs.readFileSync("./web.json"));
 
 let packages = emote.data.packages;
 
-let pkg = packages[0].emote;
+let pkg = packages[2].emote;
 
 pkg.forEach((element) => {
   let url = element.url;
@@ -24,7 +24,7 @@ pkg.forEach((element) => {
       // 当数据接收完毕之后，会触发end事件
       response.on("end", function () {
         //写入文件
-        fs.writeFile("./bilibili/" + url.split("/")[5] + ".png", data, "binary", (err) => {
+        fs.writeFile("./bilibili/" + url.split("/")[5], data, "binary", (err) => {
           if (err) {
             console.log("写入文件错误");
           } else {
